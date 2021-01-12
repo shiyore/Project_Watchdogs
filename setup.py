@@ -10,17 +10,22 @@
 #imports
 import os
 import sys
+from colorama import Fore, Style
 
 #check that the script is run by root or someone with sudo permissions
 def check_sudo():
-    print("Checking if ran by sudo")
+    #print("Checking if ran by sudo")
+    if not os.geteuid() == 0:
+        print("Please run as root")
+        sys.exit(1)
+
 
 #install methods
 def packages():
-    print("Installing packages...")
+    print(Fore.GREEN + "Installing packages...")
 
 def files():
-    print("Setting up files...")
+    print(Fore.GREEN + "Setting up files...")
 
 #--------------------------------------main-------------------------------------------
 #print("args length: " + str(len(sys.argv)))
@@ -37,8 +42,8 @@ if(len(sys.argv) > 1):
         print("To install the project run setup.py install")
 
     else:
-        print("ERROR: please run the program again")
+        print(Fore.RED + "ERROR: please run the program again")
         print("Usage: python3 setup.py install")
 
 else:
-    print("USAGE ERROR: please run setup.py -h for help")
+    print(Fore.RED + "USAGE ERROR: please run setup.py -h for help")
