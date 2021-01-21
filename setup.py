@@ -37,8 +37,8 @@ def headless_setup():
     os.system("update-rc.d -f ssh defaults")
 
     #backing up ssh keys and generating new ones
-    os.system("cd /etc/ssh/ & mkdir insecure_old")
-    os.system("mv ssh_host* insecure_old")
+    os.system("mkdir /etc/ssh/insecure_old")
+    os.system("mv /etc/ssh/ssh_host* /etc/ssh/insecure_old")
     os.system("dpkg-reconfigure openssh-server")
 
     #enabling login without password
@@ -64,12 +64,12 @@ def headless_setup():
     lines = read_file.readlines()
     i = 0
     for line in lines:
-        if("autologin-user " in line):
+        if("autologin-user=" in line):
             lines[i] = line[1:]
         i +=1
     i = 0
     for line in lines:
-        if("autologin-user-timeout" in line):
+        if("autologin-user-timeout=" in line):
             lines[i] = line[1:]
         i +=1   
  
