@@ -65,7 +65,7 @@ def headless_setup():
     i = 0
     for line in lines:
         if("autologin-user=" in line):
-            lines[i] = line[1:] + "kali"
+            lines[i] = line[1:16] + "kali\n"
         i +=1
     i = 0
     for line in lines:
