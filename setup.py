@@ -24,8 +24,20 @@ def check_sudo():
 def packages():
     print(Fore.GREEN + "Installing packages...")
     install_string = "openssh-server apache2 libapache2-mod-wsgi-py3 python-dev"
-    os.system(" apt-get install " + install_string)    
+    os.system(" apt-get install " + install_string)
+    
+    #installing scapy for wireless packet sniffing/management
+    os.system("git clone https://github.com/secdev/scapy.git")
+    os.system("python3 scapy\setup.py install")
 
+    #installing pandas for wireless scanning
+    os.system("pip3 install pandas")
+
+    #installing flask for the website
+    os.system("pip3 install flask")
+
+
+#moving necessary files this will be implemented once I get the web development section finished
 def files():
     print(Fore.GREEN + "Setting up files...")
 
@@ -90,6 +102,7 @@ def headless_setup():
     write_file.writelines(lines)
     write_file.close()
 
+#setting up the apache server
 def apache_setup():
     os.system("service apache2 enable & service apache2 restart")
     os.system("a2enmod wsgi")
