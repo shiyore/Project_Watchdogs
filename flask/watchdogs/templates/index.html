@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+<!--Header Section-->
+{% block head %}
+<title> Home </title>
+{% endblock %}
+
+<!--Body-->
+{% block body %}
+<h1 class="text-center">Home</h1>
+<div class="container">
+    <div class="row">
+      <div class="col-sm-4">
+      </div>
+      <div class="col-sm-4">
+        <div class="card border-secondary mb-3" style="max-width: 20rem;">
+            <div class="card-header">About Project_Watchdogs</div>
+            <div class="card-body">
+              <h4 class="card-title">What the project is meant for</h4>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <br>
+              <h4 class="card-title">What it can be used for</h4>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              
+            </div>
+        </div>
+        <br/>
+        <div class="card border-secondary mb-3" style="max-width: 20rem;">
+            <div class="card-header">Current Available Tools</div>
+            <div class="card-body">
+              <h4 class="card-title">Scanner</h4>
+              <p class="card-text">The scanner is a light weight tool to scan for nearby networks.</p>
+              <br>
+              <h4 class="card-title">Jammer/Deauther</h4>
+              <p class="card-text">The deauth/jammer tool is meant to disrupt a network and prevent any wireless devices from connecting back to the network.</p>
+              <br>
+              <h4 class="card-title">Scan History Page</h4>
+              <p class="card-text">The history page displays all previous scan results.</p>
+            </div>
+        </div>
+      </div>
+      <div class="col-sm-4">
+      </div>
+    </div>
+  </div>
+{% endblock %}

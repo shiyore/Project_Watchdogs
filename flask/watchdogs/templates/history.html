@@ -8,5 +8,81 @@
 <!--Body-->
 {% block body %}
 <h1 class="text-center">History</h1>
-
+<br>
+<div class="container">
+    <div class="row">
+      <div class="col-sm-4">
+      </div>
+      <div class="col-sm-4">
+        <!--The Instructions/introduction-->
+        <div class="card border-secondary mb-3" style="max-width: 20rem;">
+            <div class="card-header">What this page is for</div>
+            <div class="card-body">
+              <h4 class="card-title">What this tool is used for</h4>
+              <p class="card-text">
+                  This page isn't all that complicated, and is simply here to display the results of any scan from the past. All pages use the most recent scan results, 
+                  but this page will just allow you to look back on any results from the past.
+              </p>
+            </div>
+        </div>
+        
+        <!-- The history table -->
+        <br/>
+        <h2 class="text-center">Scans</h1>
+        <form action='/history' method='POST'>
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                <th scope="col">name</th>
+                <th scope="col">IP</th>
+                <th scope="col">MAC</th>
+                <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                <td>Mark's internet</td>
+                <td>00:00:00:00:00</td>
+                <td><button align="center" type="submit" class="btn btn-primary">Archive</button></td>
+                </tr>
+                <tr>
+                <td>Starbucks</td>
+                <td>00:00:00:00:00</td>
+                <td><button align="center" type="submit" class="btn btn-primary">Archive</button></td>
+                </tr>
+                <tr>
+                <td>Lopes</td>
+                <td>00:00:00:00:00</td>
+                <td><button align="center" type="submit" class="btn btn-primary">Archive</button></td>
+                </tr>
+            </tbody>
+        </table>
+        </form>
+        <!-- The Archive Table -->
+        <br/>
+        <h2 class="text-center">Archived Scans</h1>
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                <th scope="col">#</th>
+                <th scope="col">name</th>
+                <th scope="col">IP</th>
+                <th scope="col">MAC</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                <th scope="row">1</th>
+                <td>Mark's internet</td>
+                <td>172.24.64.54</td>
+                <td>00:00:00:00:00</td>
+                </tr>
+            </tbody>
+            </table>
+        </form>
+      </div>
+      <div class="col-sm-4">
+      </div>
+    </div>
+  </div>
 {% endblock %}

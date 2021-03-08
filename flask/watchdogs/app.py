@@ -28,17 +28,31 @@ class device(db.Model):
 def home():
     return render_template('index.html')
 
-@app.route("/scan")
+@app.route("/scan", methods=['GET', 'POST'])
 def display_scan_page():
-    return render_template('scan.html')
+    if request.method == 'POST':
+        return render_template('scan.html', scan_results=["wack"])
+    else:
+        return render_template('scan.html')
 
-@app.route("/deauth")
+@app.route("/deauth" , methods=['GET', 'POST']) 
 def display_deauth_page():
-    return render_template('deauth.html')
+    if request.method == 'POST':
+        return render_template('deauth.html', deauthing=request.form['exampleRadios1'])
+    else:
+        return render_template('deauth.html')
 
-@app.route("/history")
+@app.route("/")
+
+@app.route("/history" ,methods=["GET", "POST"])
 def display_history_page():
-    return render_template('history.html')
+    if request.method == 'POST':
+        #later this will add a post to the database
+        return render_template('history.html')
+    else:
+        #later, this will pass database data to the view
+        return render_template('history.html')
+
 
 if __name__ == "__main__":
     app.run(debug=True)

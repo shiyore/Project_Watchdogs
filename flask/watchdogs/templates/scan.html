@@ -9,5 +9,82 @@
 {% block body %}
 <h1 class="text-center">Scan</h1>
 <hr>
-
+<div class="container">
+    <div class="row">
+      <div class="col-sm-4">
+      </div>
+      <div class="col-sm-4">
+        <!--The Instructions/introduction-->
+        <div class="card border-secondary mb-3" style="max-width: 20rem;">
+            <div class="card-header">Scanner Explenationn</div>
+            <div class="card-body">
+              <h4 class="card-title">What this tool is used for</h4>
+              <p class="card-text">
+                  The scan tool is meant to be use in conjunction with all the other tools in this project.  The scan logs all nearby wireless network's IP, MAC address, and SSID.
+                  The latest scan's results will be used by the other tools in order to carry out the desired attack.
+              </p>
+              <br>
+              <h4 class="card-title">How to use it</h4>
+              <p class="card-text">
+                  This page is relatively simple to use. Just click the scan button and let the page carry out the rest.  Once the scan is finished, the page will refresh with a table and the last scan's results.
+              </p>
+            </div>
+        </div>
+        
+        <!--The actual tool -->
+        <form action='/scan' method='POST'>
+        <div id="showButton" class="container">
+            <input type="button" align="center" class="btn btn-primary" name="answer" value="Show Div" onclick="showDiv()"/>
+        </div>
+        <div id="welcomeDiv" style="display:none;" class="container">
+            <div class="progress">
+                <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="animation: fill 20s linear 1;"></div>
+            </div>
+            <button align="center" type="submit" class="btn btn-primary">finish_scan</button>
+        </div>
+                {% if scan_results is defined %}
+                <br/>
+                <h2 class="text-center">Scans</h1>
+                <table class="table">
+                    <thead class="thead-dark">
+                        <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">name</th>
+                        <th scope="col">IP</th>
+                        <th scope="col">MAC</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                        <th scope="row">1</th>
+                        <td>Mark's internet</td>
+                        <td>172.24.64.54</td>
+                        <td>00:00:00:00:00</td>
+                        </tr>
+                        <tr>
+                        <th scope="row">2</th>
+                        <td>Starbucks</td>
+                        <td>172.24.64.58</td>
+                        <td>00:00:00:00:00</td>
+                        </tr>
+                        <tr>
+                        <th scope="row">3</th>
+                        <td>Lopes</td>
+                        <td>172.24.64.97</td>
+                        <td>00:00:00:00:00</td>
+                        </tr>
+                    </tbody>
+                {% endif %}
+        </form>
+      </div>
+      <div class="col-sm-4">
+      </div>
+    </div>
+</div>
+<script>
+    function showDiv() {
+   document.getElementById('welcomeDiv').style.display = "block";
+   document.getElementById('showButton').style.display = "none";
+}
+</script>
 {% endblock %}

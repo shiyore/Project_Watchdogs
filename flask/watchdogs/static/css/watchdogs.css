@@ -217,3 +217,16 @@
     top: 21px;
     left: 8px;
     }
+
+    .buttoncontainer { margin:40px 0px 20px; text-align:center;}
+    .startbutton { cursor:pointer; border:1px solid #222223; color:#fff; background-color:#222223; padding:10px 20px;  }
+    .startbutton:hover { background-color:#fff; color:#222223; }
+
+    @keyframes fill {
+      0% {
+        width: 0%;
+      }
+      100% {
+        width: 100%;
+      }
+    }

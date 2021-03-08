@@ -8,6 +8,73 @@
 <!--Body-->
 {% block body %}
 <h1 class="text-center">Deauth</h1>
-
-
+<div class="container">
+    <div class="row">
+      <div class="col-sm-4">
+      </div>
+      <div class="col-sm-4">
+        <!--The Instructions/introduction-->
+        <div class="card border-secondary mb-3" style="max-width: 20rem;">
+            <div class="card-header">Deauth Explanation</div>
+            <div class="card-body">
+              <h4 class="card-title">What this tool is used for</h4>
+              <p class="card-text">The deauth tool is used to temporarily disrupt any wireless network and or individual wireless devices.
+                  This is done by sending deauth packets to the router in order to kick/deauth devices off from it's connection.
+              </p>
+              <br>
+              <h4 class="card-title">How to use it</h4>
+              <p class="card-text">After running a scan, the latest scan results will appear in the table below. Simply select a scanned device, then click the run button.
+                  The selected network will then be effectively jammed until the stop button is clicked.
+              </p>
+            </div>
+        </div>
+        
+        <!--The actual tool -->
+        {% if deauthing is defined %}
+            <form action='/deauth' method='GET'>
+        {% else %}
+            <form action='/deauth' method='POST'>
+        {% endif %}
+        
+            <table class="table">
+                <thead class="thead-dark">
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">name</th>
+                    <th scope="col">MAC</th>
+                    <th scope="col">Selected</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">1</th>
+                    <td>Mark's internet</td>
+                    <td>00:00:00:00:00</td>
+                    <td align="center"><input class="form-check-input" type="radio" name="exampleRadios1" id="exampleRadios1" value="mac1" checked></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">2</th>
+                    <td>Lopes</td>
+                    <td>00:00:00:00:00</td>
+                    <td align="center"><input class="form-check-input" type="radio" name="exampleRadios1" id="exampleRadios1" value="mac2"></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">3</th>
+                    <td>BatCave</td>
+                    <td>00:00:00:00:00</td>
+                    <td align="center"><input class="form-check-input" type="radio" name="exampleRadios1" id="exampleRadios1" value="mac3"></td>
+                  </tr>
+                </tbody>
+              </table>
+                {% if deauthing is defined %}
+                    <button align="center" type="submit" class="btn btn-danger">Stop</button> Scanning: {{deauthing}}
+                {% else %}
+                    <button align="center" type="submit" class="btn btn-primary">Begin</button>
+                {% endif %}
+        </form>
+      </div>
+      <div class="col-sm-4">
+      </div>
+    </div>
+  </div>
 {% endblock %}
