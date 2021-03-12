@@ -38,12 +38,22 @@ def callback(packet):
         crypto = stats.get("crypto")
         networks.loc[bssid] = (ssid, dbm_signal , channel , crypto)
 
+#function to print the currently scanned networks
+def write_results(network):
+    file1 = open("scan_results.txt", "w")  # append mode 
+    file1.write(str(network) + " \n") 
+    file1.close() 
+
 #printing function
 def print_all():
-    while True:
+    time_end = time.time() + 4
+    while time.time() < time_end:
         os.system("clear")
-        print(networks)
+        #print(networks)
+        write_results(networks)
         time.sleep(0.5)
+    os.system("kill -9 " + str(os.getpid()))
+    sys.exit()
 
 #channel changer
 def change_channel():

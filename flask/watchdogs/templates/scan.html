@@ -48,31 +48,19 @@
                 <table class="table">
                     <thead class="thead-dark">
                         <tr>
-                        <th scope="col">#</th>
                         <th scope="col">name</th>
-                        <th scope="col">IP</th>
+                        <th scope="col">ch</th>
                         <th scope="col">MAC</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                        <th scope="row">1</th>
-                        <td>Mark's internet</td>
-                        <td>172.24.64.54</td>
-                        <td>00:00:00:00:00</td>
-                        </tr>
-                        <tr>
-                        <th scope="row">2</th>
-                        <td>Starbucks</td>
-                        <td>172.24.64.58</td>
-                        <td>00:00:00:00:00</td>
-                        </tr>
-                        <tr>
-                        <th scope="row">3</th>
-                        <td>Lopes</td>
-                        <td>172.24.64.97</td>
-                        <td>00:00:00:00:00</td>
-                        </tr>
+                        {% for device in scan_results %}
+                            <tr>
+                                <td>{{device["name"]}}</td>
+                                <td>{{device["channel"]}}</td>
+                                <td>{{device["mac"]}}</td>
+                            </tr>
+                        {% endfor %}
                     </tbody>
                 {% endif %}
         </form>

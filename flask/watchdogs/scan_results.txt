@@ -1,0 +1,3 @@
+Empty DataFrame
+Columns: [SSID, dBm_Signal, Channel, Crypto]
+Index: [] 
