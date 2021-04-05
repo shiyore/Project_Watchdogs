@@ -52,7 +52,7 @@ My choices were mainly based on what I would need the least amount of installati
 |   Scapy    |    Packet interception and crafting   |   Scapy is used by programmers to manage wireless capabilities like sniffing and crafting packets.    |
 |   Raspberry Pi    |    Project Housing   |   My project can't be run on a phone, so having a raspberry pi hosting a site would be the easiest way to access the tools on a phone.    |
 |   Kali Linux    |    Operating System   |   Kali linux has a lot of built in tools that I can implement later down the line, and comes with some default packages that I use.    |
-
+|   SQLAlchemy   |    Database Management   |   The only module I could find that was built to manage databases with flask.     |
 >### Devops principles
 >As my project isn't on the cloud, I did my best to try and implement CD\CI although it's not really possible. If the user wants to make any changes to the project, they can edit the site within the flask directory, and all changes will take place upon restart. As for any changes I make, they can also be updated fairly easily. All the user needs to do is navigate to the project directory and use "git pull" and all changes will take place upon restart.
 >
@@ -99,8 +99,18 @@ I only have to issues, scapy doesn't install correctly and may sometimes need ma
 
 ---
 
-## **Screenshots and Video Demonstration**
+## **Video Demonstration, Project Planning Documents, and Screenshots**
+Here is my **[Video Demonstration](https://youtu.be/QNEV_MoPcNQ)** that goes over my final submission's functionality, code, and most difficult issue I encountered.
+[![IMAGE ALT TEXT HERE](https://i9.ytimg.com/vi/QNEV_MoPcNQ/mq2.jpg?sqp=CPC1q4MG&rs=AOn4CLBVq0j8hpi_lmtYZ59TXJN5FnMwFw)](https://youtu.be/QNEV_MoPcNQ)
 
+
+Below will be links to my project planning documents:
+ - [Project Proposal](https://docs.google.com/document/d/1pg_mEUOqFhxTsGsA435HpgMtg91far8Agp0mrHdH91k/edit?usp=sharing)
+ - [Requirements Document](https://docs.google.com/document/d/1fgxIiI9hz0epV6K2WQsTxS0JCYTevAMDJNG45P_vgrI/edit?usp=sharing)
+ - [Project Design Report](https://docs.google.com/document/d/1v1dn24ysHzHMVFWKqLSSSDKWW661LsDWZa1xOgVKl-w/edit?usp=sharing)
+ - [Test Cases](https://docs.google.com/spreadsheets/d/1qxEOJRloOvlLFDv1exGzjEEpxZnYfWXp7LVJLyXyLVE/edit?usp=sharing)
+ - [User Stories](https://docs.google.com/spreadsheets/d/19BBOpORVL5XS-3QDqhetDGyS-B04Luq9_laX4_Vq1-s/edit?usp=sharing)
+ 
 ![Home Page](https://a3-images.myspacecdn.com/images04/5/89e1f2bc187946aabbf6f826f21141b6/full.jpg)
 ![History Page](https://a2-images.myspacecdn.com/images04/4/d84d72e7712a4c06912de1c8ce688c28/full.jpg)
 ![Scan Page](https://a1-images.myspacecdn.com/images04/11/1ece233f52ed4c75a5e7611418cbdc93/full.jpg)
