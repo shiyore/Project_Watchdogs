@@ -46,10 +46,10 @@ def write_results(network):
 
 #printing function
 def print_all():
-    time_end = time.time() + 4
+    time_end = time.time() + 4.5
     while time.time() < time_end:
         os.system("clear")
-        #print(networks)
+        print(networks)
         write_results(networks)
         time.sleep(0.5)
     os.system("kill -9 " + str(os.getpid()))

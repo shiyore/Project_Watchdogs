@@ -27,7 +27,7 @@ def parse_results():
     for line in lines[2:]:
         if len(line.split()) >= 5:
             line_arr = line.split()
-            devices.append({"name": line_arr[1] if line_arr[1] != '\x00' else 'hidden' , "mac": line_arr[0], "channel": line_arr[3], "encryption": line_arr[4]})
+            devices.append({"name": line_arr[1] if '\x00' not in  line_arr[1] else 'hidden' , "mac": line_arr[0], "channel": line_arr[3], "encryption": line_arr[4]})
     return devices
 #main-----------------------------------------------------------------------------------------
 

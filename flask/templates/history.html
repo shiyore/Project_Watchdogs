@@ -29,56 +29,54 @@
         <!-- The history table -->
         <br/>
         <h2 class="text-center">Scans</h1>
-        <form action='/history' method='POST'>
         <table class="table">
             <thead class="thead-dark">
                 <tr>
                 <th scope="col">name</th>
-                <th scope="col">IP</th>
                 <th scope="col">MAC</th>
                 <th scope="col"></th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                <td>Mark's internet</td>
-                <td>00:00:00:00:00</td>
-                <td><button align="center" type="submit" class="btn btn-primary">Archive</button></td>
-                </tr>
-                <tr>
-                <td>Starbucks</td>
-                <td>00:00:00:00:00</td>
-                <td><button align="center" type="submit" class="btn btn-primary">Archive</button></td>
-                </tr>
-                <tr>
-                <td>Lopes</td>
-                <td>00:00:00:00:00</td>
-                <td><button align="center" type="submit" class="btn btn-primary">Archive</button></td>
-                </tr>
+                {% for device in scans %}
+                    <tr>
+                        <form action='/history' method='POST'>
+                            <td>{{device["device_name"]}}</td>
+                            <td>{{device["mac_address"]}}</td>
+                            <input type="hidden" id="device_id" name="device_id" value="{{device['device_id']}}">
+                            <td><button align="center" id="archive" name="archive" type="submit" class="btn btn-primary">Archive</button></td>
+                        </form>
+                    </tr>
+                {% endfor %}
             </tbody>
         </table>
-        </form>
         <!-- The Archive Table -->
         <br/>
         <h2 class="text-center">Archived Scans</h1>
         <table class="table">
             <thead class="thead-dark">
                 <tr>
-                <th scope="col">#</th>
                 <th scope="col">name</th>
-                <th scope="col">IP</th>
                 <th scope="col">MAC</th>
+                <th scope="col"></th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                <th scope="row">1</th>
-                <td>Mark's internet</td>
-                <td>172.24.64.54</td>
-                <td>00:00:00:00:00</td>
-                </tr>
+                {% for device in archived %}
+                    <tr>
+                        <form action='/history' method='POST'>
+                            <td>{{device["device_name"]}}</td>
+                            <td>{{device["mac_address"]}}</td>
+                            <input type="hidden" id="device_id" name="device_id" value="{{device['device_id']}}">
+                            <td><button align="center" id="remove" name="remove" type="submit" class="btn btn-danger">Remove</button></td>
+                        </form>
+                    </tr>
+                {% endfor %}
             </tbody>
-            </table>
+        </table>
+        <br/>
+        <form action='/history' method='POST'>
+            <button align="center" id="clear" name="clear" type="submit" class="btn btn-danger">Clear All Non-Archived Scans</button>
         </form>
       </div>
       <div class="col-sm-4">

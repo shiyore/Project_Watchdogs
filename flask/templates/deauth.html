@@ -35,42 +35,34 @@
         {% else %}
             <form action='/deauth' method='POST'>
         {% endif %}
-        
+            
+        {% if deauthing is defined %}
+            <h2 class="text-center">Currently deauthing, click to stop</h2>
+            <button align="center" type="submit" class="btn btn-danger">Stop</button>
+        {% else %}
+            <!--Dauth Options Table-->
+            <br/>
+            <h2 class="text-center">Devices</h1>
             <table class="table">
                 <thead class="thead-dark">
-                  <tr>
-                    <th scope="col">#</th>
+                    <tr>
                     <th scope="col">name</th>
                     <th scope="col">MAC</th>
-                    <th scope="col">Selected</th>
-                  </tr>
+                    <th scope="col"></th>
+                    </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <th scope="row">1</th>
-                    <td>Mark's internet</td>
-                    <td>00:00:00:00:00</td>
-                    <td align="center"><input class="form-check-input" type="radio" name="exampleRadios1" id="exampleRadios1" value="mac1" checked></td>
-                  </tr>
-                  <tr>
-                    <th scope="row">2</th>
-                    <td>Lopes</td>
-                    <td>00:00:00:00:00</td>
-                    <td align="center"><input class="form-check-input" type="radio" name="exampleRadios1" id="exampleRadios1" value="mac2"></td>
-                  </tr>
-                  <tr>
-                    <th scope="row">3</th>
-                    <td>BatCave</td>
-                    <td>00:00:00:00:00</td>
-                    <td align="center"><input class="form-check-input" type="radio" name="exampleRadios1" id="exampleRadios1" value="mac3"></td>
-                  </tr>
+                    {% for device in devices %}
+                        <tr>
+                        <td>{{device["device_name"]}}</td>
+                        <td>{{device["mac_address"]}}</td>
+                        <td align="center"><input class="form-check-input" type="radio" name="selected" id="selected" value="{{device['mac_address']}}"></td>
+                        </tr>
+                    {% endfor %}
                 </tbody>
-              </table>
-                {% if deauthing is defined %}
-                    <button align="center" type="submit" class="btn btn-danger">Stop</button> Scanning: {{deauthing}}
-                {% else %}
-                    <button align="center" type="submit" class="btn btn-primary">Begin</button>
-                {% endif %}
+            </table>
+            <button align="center" type="submit" class="btn btn-primary">Begin</button>
+        {% endif %}
         </form>
       </div>
       <div class="col-sm-4">
