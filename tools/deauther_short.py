@@ -1,7 +1,7 @@
-    """Written by Aiden Yoshioka-Miller
+"""Written by Aiden Yoshioka-Miller
         
-        This is a very short script that minimizes the input that I need for my project to function. This is a bit unneeded, but it was kind of needed to get my deauth section working quicker.
-    """
+    This is a very short script that minimizes the input that I need for my project to function. This is a bit unneeded, but it was kind of needed to get my deauth section working quicker.
+"""
 from deauth import *
 from scapy.all import *
 
