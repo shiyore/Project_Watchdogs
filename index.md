@@ -53,6 +53,8 @@ My choices were mainly based on what I would need the least amount of installati
 |   Raspberry Pi    |    Project Housing   |   My project can't be run on a phone, so having a raspberry pi hosting a site would be the easiest way to access the tools on a phone.    |
 |   Kali Linux    |    Operating System   |   Kali linux has a lot of built in tools that I can implement later down the line, and comes with some default packages that I use.    |
 |   SQLAlchemy   |    Database Management   |   The only module I could find that was built to manage databases with flask.     |
+
+
 >### Devops principles
 >As my project isn't on the cloud, I did my best to try and implement CD\CI although it's not really possible. If the user wants to make any changes to the project, they can edit the site within the flask directory, and all changes will take place upon restart. As for any changes I make, they can also be updated fairly easily. All the user needs to do is navigate to the project directory and use "git pull" and all changes will take place upon restart.
 >
