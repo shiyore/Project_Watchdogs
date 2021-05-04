@@ -112,7 +112,7 @@ def display_scan_page():
 
         #reading the results from the .pkl file
         devices = []
-        with open('results.pkl', 'rb') as fp:
+        with open(os.getcwd() +'/results.pkl', 'rb') as fp:
             devices = pickle.load(fp)
 
         #getting the latest scan group to set the next scan group
@@ -139,18 +139,26 @@ def display_deauth_page():
     p = ""
     latest_scans = get_latest_scans()
     if request.method == 'POST':
+<<<<<<< HEAD
         #starting the subprocess
         try:
             #opening a subprocess that runs my script that runs the deauth script with minimal input
             deauth_process = subprocess.Popen([sys.executable, '../tools/deauther_short.py' , "-t " + request.form['selected'] ], stdout=subprocess.PIPE, stderr=subprocess.STDOUT)   
     
+=======
+        #starting the subprocessi
+        #opening a subprocess that runs my script that runs the deauth script with minimal input
+        try:    
+            deauth_process = subprocess.Popen([sys.executable, '../tools/deauther_short.py' , "-t " + request.form['selected'] + " "], stdout=subprocess.PIPE, stderr=subprocess.STDOUT)              
+              
+>>>>>>> aae8356b61268c451992a9db66b5d582a3119f9e
             #writing the process's pid to a file because python refuses to change the global PID value outside this method
             with open('../.files/pid.txt', 'w') as file:
                 file.write(str(deauth_process.pid))
             print("Deauth pid: " + str(get_deauth_pid()))
         except:
             print("Failed to start deauth")
-        return render_template('deauth.html', devices=latest_scans, deauthing=request.form['selected'])
+        return render_template('deauth.html', devices=latest_scans, deauthing=request.form['selected'])   
     else:
         #if the page is loaded, it tries to 
         try:

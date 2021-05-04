@@ -1,6 +1,11 @@
 """Written by Aiden Yoshioka-Miller
+<<<<<<< HEAD
 
 This is a very short script that minimizes the input that I need for my project to function. This is a bit unneeded, but it was kind of needed to get my deauth section working quicker.
+=======
+        
+    This is a very short script that minimizes the input that I need for my project to function. This is a bit unneeded, but it was kind of needed to get my deauth section working quicker.
+>>>>>>> aae8356b61268c451992a9db66b5d582a3119f9e
 """
 from deauth import *
 from scapy.all import *
