@@ -14,7 +14,7 @@ from flask import Flask, render_template, request, redirect
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import desc
 import sqlalchemy
-import os, pickle, sys, time
+import os, pickle, sys, time, subprocess
 
 currentdir = os.path.dirname(os.path.realpath(__file__))
 parentdir = os.path.dirname(currentdir)
@@ -42,6 +42,7 @@ class device(db.Model):
 
 #auxilary methods-----------------------------------------------------------------------------------------------------------------------
 def monitor_mode(num: int):
+    num = str(num)
     os.system('ifconfig wlan'+num+' down')
     os.system('iwconfig wlan'+num+' mode monitor')
     #os.system('airmon-ng start wlan0 &&')
@@ -49,6 +50,7 @@ def monitor_mode(num: int):
     os.system('ifconfig wlan'+num+' up ')
 
 def managed_mode(num: int):
+    num = str(num)
     os.system('ifconfig wlan'+num+' down')
     os.system('iwconfig wlan'+num+' mode managed')
     #os.system('airmon-ng stop wlan0mon &&')
@@ -101,9 +103,9 @@ def display_scan_page():
     if request.method == 'POST':
 
         #running the scan script 
-        monitor_mode(1)
+        monitor_mode(0)
         os.system('python3 ' +tool_dir+ 'scanner.py -i wlan1')
-        managed_mode(1)
+        managed_mode(0)
 
         #parsing the results
         os.system('python3 ' + tool_dir + 'result_parser.py')
@@ -140,8 +142,8 @@ def display_deauth_page():
         #starting the subprocess
         try:
             #opening a subprocess that runs my script that runs the deauth script with minimal input
-            deauth_process = subprocess.Popen([sys.executable, '../tools/deauther_short.py' , "-t " + request.form['selected'] + " "], stdout=subprocess.PIPE, stderr=subprocess.STDOUT)   
-            
+            deauth_process = subprocess.Popen([sys.executable, '../tools/deauther_short.py' , "-t " + request.form['selected'] ], stdout=subprocess.PIPE, stderr=subprocess.STDOUT)   
+    
             #writing the process's pid to a file because python refuses to change the global PID value outside this method
             with open('../.files/pid.txt', 'w') as file:
                 file.write(str(deauth_process.pid))
